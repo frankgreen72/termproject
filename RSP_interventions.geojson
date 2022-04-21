@@ -1,0 +1,35 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.56142182,45.50783789 ]
+    },
+    "properties": {
+    "Name":"Brady Public Space"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.5577729,45.50849639 ]
+    },
+    "properties": {
+    "Name":"Viger Redesign"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -73.56139723,45.5058249 ]
+    },
+    "properties": {
+    "Name":"Palais des Congrès Square"
+    }
+  }
+]
+}
