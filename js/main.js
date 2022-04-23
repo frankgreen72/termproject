@@ -27,14 +27,17 @@ function loadMap(mapid){
 		console.log("no map to delete")
 	}
 	finally {
+		// set basemap, populate with data & add style. Same structure for all 4 map options.
 		if(mapid == 'mapa'){
 			mapSelect = 'A'
 
+			// to be loaded as a basemap selector below
 			let baseLayers = {
 				"Map View": CartoDB_Positron,
 				"Satellite View": Satellite
 			};
 
+			// set map view
 			myMap = L.map('mapdiv1', {
 				center: [45.507606356599766, -73.56022692275582]
 				,zoom: 15
@@ -53,7 +56,7 @@ function loadMap(mapid){
 					fill: false
 			}).addTo(myMap);
 
-			// add custom map info
+			// add custom map info relative to functions below
 			legend.addTo(myMap);
 			info.addTo(myMap);
 		};
@@ -61,11 +64,13 @@ function loadMap(mapid){
 		if(mapid == 'mapb'){
 			mapSelect = 'B'
 
+			// to be loaded as a basemap selector below
 			let baseLayers = {
 				"Map View": CartoDB_Positron,
 				"Satellite View": Satellite
 			};
 
+			// set map view
 			myMap = L.map('mapdiv1', {
 				center: [45.507606356599766, -73.56022692275582]
 				,zoom: 15
@@ -84,7 +89,7 @@ function loadMap(mapid){
 					fill: false
 			}).addTo(myMap);
 
-			// add custom map info
+			// add custom map info relative to functions below
 			legend.addTo(myMap);
 			info.addTo(myMap);
 		};
@@ -92,11 +97,13 @@ function loadMap(mapid){
 		if(mapid == 'mapc'){
 			mapSelect = 'C'
 
+			// to be loaded as a basemap selector below
 			let baseLayers = {
 				"Map View": CartoDB_Positron,
 				"Satellite View": Satellite
 			};
 
+			// set map view
 			myMap = L.map('mapdiv1', {
 				center: [45.507606356599766, -73.56022692275582]
 				,zoom: 15
@@ -115,7 +122,7 @@ function loadMap(mapid){
 					fill: false
 			}).addTo(myMap);
 
-			// add custom map info
+			// add custom map info relative to functions below
 			legend.addTo(myMap);
 			info.addTo(myMap);
 		};
@@ -123,11 +130,13 @@ function loadMap(mapid){
 		if(mapid == 'mapd'){
 			mapSelect = 'D'
 
+			// to be loaded as a basemap selector below
 			let baseLayers = {
 				"Map View": CartoDB_Positron,
 				"Satellite View": Satellite
 			};
 
+			// set map view
 			myMap = L.map('mapdiv1', {
 				center: [45.507606356599766, -73.56022692275582]
 				,zoom: 15
@@ -146,16 +155,15 @@ function loadMap(mapid){
 					fill: false
 			}).addTo(myMap);
 
-			// add custom map info
+			// add custom map info relative to functions below
 			legend.addTo(myMap);
 			info.addTo(myMap);
 		};
-
 	};
 };
 
 
-// set choropleth map colors
+// set choropleth map colors & categorization
 function getColor(d) {
 	if (mapSelect == 'A'){
 		return d > 18000 ? '#800026' :
@@ -241,6 +249,7 @@ function style(feature) {
 function highlightFeature(e) {
     var layer = e.target;
 
+		// style for highlight
     layer.setStyle({
         weight: 5,
         color: '#666',
@@ -248,12 +257,14 @@ function highlightFeature(e) {
         fillOpacity: 0.7
     });
 
+		// excluded to avoid problems with bringtofront on mouseover
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront();
     };
 		info.update(layer.feature.properties);
 };
 
+	// reset style to default, unhighlights function
 function resetHighlight(e) {
     geojsonLayer.resetStyle(e.target);
 		info.update();
@@ -313,7 +324,7 @@ legend.onAdd = function (myMap) {
         grades = [0, 3000, 5000, 7000, 9000, 11000, 14000, 18000],
         labels = [];
 
-    // loop through our density intervals and generate a label with a colored square for each interval
+    // loop through the density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -326,7 +337,7 @@ legend.onAdd = function (myMap) {
         grades = [0, 10, 20, 30, 40, 50],
         labels = [];
 
-    // loop through our density intervals and generate a label with a colored square for each interval
+    // loop through the density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
             '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -339,7 +350,7 @@ legend.onAdd = function (myMap) {
 				grades = [0, 15, 30, 45, 60, 75],
 				labels = [];
 
-		// loop through our density intervals and generate a label with a colored square for each interval
+		// loop through the density intervals and generate a label with a colored square for each interval
 		for (var i = 0; i < grades.length; i++) {
 				div.innerHTML +=
 						'<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
@@ -352,7 +363,7 @@ legend.onAdd = function (myMap) {
 				grades = [0, 15, 30, 45, 60, 75],
 				labels = [];
 
-		// loop through our density intervals and generate a label with a colored square for each interval
+		// loop through the density intervals and generate a label with a colored square for each interval
 		for (var i = 0; i < grades.length; i++) {
 				div.innerHTML +=
 						'<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
