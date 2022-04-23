@@ -1,0 +1,69 @@
+<html  lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Data Visualization</title>
+
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- link to leaflet styles -->
+    <link rel="stylesheet" type="text/css" href="lib/leaflet/leaflet.css" />
+    <!-- link to leaflet scripts -->
+    <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+    <script type="text/javascript" src="data/464data_3.js"></script>
+  </head>
+
+  <body>
+    <header-container>
+      <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="data.html">Data</a>
+        <a href="rsp.html">RSP</a>
+        <a href="https://github.com/geog-464" target="_blank">Github</a>
+      </div>
+    </header-container>
+
+    <div class="main">
+      <div class="wrapper">
+        <div class="one"><h1>Term Project 464</h1>
+          <div id="credits"><p><i>Francis Grenier<br>GEOG 464<br>Concordia University<br>April 22th, 2022</p></i></div>
+        </div>
+
+        <div class="two"><h2><hr/>Socio-Economic Profile of Chinatown</h2>
+          <p>
+            In order to better contextualize issues experienced by Chinatown’s community residents, 4 socio-economic factors are presented here at the dissemination area level. First, values of population density are expressed in population per square kilometre, illustrating the low-density nature of the neighbourhood that contrasts with the accelerated high-rise development trend of recent years. Importantly, various changes in the scale are not captured within the 2016 census.<br><br>Second, the distribution of the low-income population is based on “the low-income measure, after tax (LIM-AT) (v2018)” category, highlighting various areas of concern within Chinatown particularly in the easternmost part of the neighbourhood as it is reported at 52%. This result is of significant importance as only about 2% of all Island of Montreal’s dissemination areas are found reaching over 50%.<br><br>Third, the distribution of the population group of people over 65 years old shows a significant concentration of elderly people in Chinatown. Notably, there is an overlap of high low-income and population over 65 years old in the east. <br><br>Fourth, the distribution of Chinese speakers is derived from the “Knowledge of Language – Chinese Languages (v2720)” category. Here, the results are striking with one DA 1258 recording of 81.2%, the highest concentration for the whole Island of Montreal. In comparison, the Island-wide model is an exponentially decreasing curve, with the second-ranking DA at 59.3%, then 53.6%.<br><br>Some key takeaways: the DA 2116, covering the Complèxe Guy-Favreau, scores high in all four categories. Also, while the social landscape of Chinatown is changing, accelerated by development pressure focusing on the more high-end residential offer, the area is unmistakably still a center of Chinese culture. Lastly, while the eastern end, DA 1259 sits outside of the official Chinatown boundaries, the data confirms its significance and connection to the neighbourhood. More so, it is home to a significant low-income and elderly population, suggesting a community in need at risk of being forgotten in this buffer area between the CHUM and Chinatown proper.
+          </p>
+        </div>
+
+        <div class="three"><h2><hr/>Data Visualization</h2>
+          <p>Select a category from the dropdown menu below to view data.<br><i>The green rectangle on the map delimits the boundaries of Chinatown.</i></p>
+          <div id="option">
+            <select class="li-nav" name="mapdropdown" id="mapdropdown" onChange="loadMap(this.value);">
+              <option value="map0" selected="selected" disabled>Select map</option>
+              <option value='mapa'>Density</option>
+              <option value='mapb'>Low Income</option>
+              <option value='mapc'>Pop Over 65</option>
+              <option value='mapd'>Language</option>
+            </select>
+          </div>
+          <div id="mapdiv1"></div>
+          <p><small><i>Data Source: Government of Canada, 2016 Census Data</i></small></p><br>
+        </div>
+
+        <!-- <div class="four">
+        </div> -->
+
+        <!-- <div class="five">Five</div> -->
+
+        <!-- <div class="six">Six</div> -->
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+  </body>
+
+</html>
